@@ -1,0 +1,4 @@
+game:GetService("ReplicatedStorage").CodeEvents.RemoteEvent.OnServerEvent:Connect(function(player)
+	player.leaderstats.Money.Value += 100
+	player.CodeFolder.Bool.Value = true
+end)
