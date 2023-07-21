@@ -1,0 +1,29 @@
+local open = true
+local player = game.Players.LocalPlayer
+local buttonopen = script.Parent.Open
+
+buttonopen.Activated:Connect(function()
+	if open == true then
+		script.Parent.Main.Visible = true
+		open = false
+	else
+		script.Parent.Main.Visible = false
+		open = true
+	end
+end)
+
+
+
+script.Parent.Main.Submit.Activated:Connect(function()
+	if player.CodeFolder.Bool.Value == false then
+		if script.Parent.Main.TextBox.Text == "Dog" then
+			game:GetService("ReplicatedStorage").CodeEvents.RemoteEvent:FireServer(player)
+		else
+			script.Parent.Main.TextBox.Text = "This Code Is Not Registered!"
+		end
+	elseif player.CodeFolder.Bool.Value == true then
+		if script.Parent.Main.TextBox.Text == "Dog" then
+			script.Parent.Main.TextBox.Text = "You Have Already Used This Code"
+		end
+	end
+end)
