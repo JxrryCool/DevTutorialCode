@@ -16,6 +16,10 @@ end)
 
 script.Parent.Main.Submit.Activated:Connect(function()
 	if player.CodeFolder.Bool.Value == false then
+		-- Change The String To Whatever Code You Want!
+		--You Can Add An ElseIf, If You Want To Add More Codes
+		--Comment In The Video If You Would Like Me To Show You
+		--How To Add More Codes!
 		if script.Parent.Main.TextBox.Text == "Dog" then
 			game:GetService("ReplicatedStorage").CodeEvents.RemoteEvent:FireServer(player)
 		else
