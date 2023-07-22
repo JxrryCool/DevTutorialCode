@@ -1,0 +1,19 @@
+▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒▒██████▒▒▒█▒▒▒████▒▒▒▒████▒▒▒██▒▒▒██▒▒▒█████▒▒▒████▒▒▒█████▒▒▒█████▒▒███████▒▒
+▒▒█▒▒▒░▒▒▒▒█░░██▒▒██▒▒██▒▒██▒▒█▒█▒█▒█▒▒▒█▒▒▒▒▒▒▒█▒▒█▒▒▒█▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒
+▒▒█▒▒███▒▒▒█▒▒█░▒▒▒█▒▒█▒▒▒▒█▒▒█▒▒█▒▒█▒▒▒█▒▒▒▒▒▒▒█▒▒▒▒▒▒█████▒▒▒█████▒▒▒▒▒█▒▒▒▒▒
+▒▒█▒▒▒░█░░░█▒▒██▒▒██▒▒██▒▒██▒▒█▒▒▒▒▒█▒▒▒█▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒
+▒▒██████▒▒▒█░░░████▒▒▒▒████▒▒▒█▒▒▒▒▒█▒▒▒█████▒▒▒█▒▒▒▒▒▒█▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒
+
+
+
+*READ ME*
+*FOR FILE CODE PLACEMENT*
+
+DATA STORE CODE NEEDS TO BE IN SERVERSCRIPT SERVICE AND THE SCRIPT SHOULD BE CALLED "DataStore".
+
+RECIEVE CODE SHOULD BE IN A SCRIPT AND IN SERVERSCRIPT SERVICE.
+
+ALSO THERE SHOULD BE A FOLDER MADE IN REPLICATED STORAGE CALLED "CodeEvents" AND A REMOTE EVENT SHOULD BE MADE INSIDE THAT FOLDER.
+
+THE OTHER CODE SHOULD BE IN A LOCAL SCRIPT IN THE CODES GUI.
