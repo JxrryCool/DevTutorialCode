@@ -6,6 +6,7 @@ local right2 = true
 workspace:WaitForChild("OpenShop").ProximityPrompt.Triggered:Connect(function()
 	camera.CameraType = Enum.CameraType.Scriptable
 	camera.CFrame = game.Workspace.ShopCam.CFrame
+	script.Parent.ShopGui.Price.Text = "Price: 50"
 	script.Parent.ShopGui.Enabled = true
 end)
 
