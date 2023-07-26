@@ -1,0 +1,76 @@
+local left = false
+local left2 = false
+local right = true
+local right2 = true
+
+workspace:WaitForChild("OpenShop").ProximityPrompt.Triggered:Connect(function()
+	camera.CameraType = Enum.CameraType.Scriptable
+	camera.CFrame = game.Workspace.ShopCam.CFrame
+	script.Parent.ShopGui.Enabled = true
+end)
+
+script.Parent.ShopGui.Exit.Activated:Connect(function()
+	camera.CameraType = Enum.CameraType.Custom
+	script.Parent.ShopGui.Enabled = false
+	script.Parent.ShopGui.Price.Text = "Price: 50"
+	game:GetService("TweenService"):Create(camera, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {CFrame = game.Workspace.CamPart.CFrame}):Play()
+	local left = false
+	local left2 = false
+	local right = true
+	local right2 = true
+end)
+
+script.Parent.ShopGui.Right.Activated:Connect(function()
+	if right == true then
+		game:GetService("TweenService"):Create(camera, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {CFrame = game.Workspace.CamPart1.CFrame}):Play()
+		script.Parent.ShopGui.Price.Text = "Price: 100"
+		right = false
+		left = true
+		left2 = true
+	elseif right2 == true then
+		game:GetService("TweenService"):Create(camera, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {CFrame = game.Workspace.CamPart2.CFrame}):Play()
+		script.Parent.ShopGui.Price.Text = "Price: 150"
+		right2 = false
+		left2 = true
+	end
+end)
+
+script.Parent.ShopGui.Left.Activated:Connect(function()
+	if left == true then
+		game:GetService("TweenService"):Create(camera, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {CFrame = game.Workspace.CamPart1.CFrame}):Play()
+		script.Parent.ShopGui.Price.Text = "Price: 100"
+		left = false
+		right = true
+		right2 = true
+	elseif left2 == true then
+		game:GetService("TweenService"):Create(camera, TweenInfo.new(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), {CFrame = game.Workspace.CamPart.CFrame}):Play()
+		script.Parent.ShopGui.Price.Text = "Price: 50"
+		right2 = true
+		left2 = false
+	end
+end)
+
+
+script.Parent.ShopGui.Buy.Activated:Connect(function()
+	if camera.CFrame == game.Workspace.CamPart.CFrame then
+		if plr.leaderstats.Money.Value >= 50 then
+			game:GetService("ReplicatedStorage").ShopEvents.Sword:FireServer(plr)
+		end
+	end
+end)
+
+script.Parent.ShopGui.Buy.Activated:Connect(function()
+	if camera.CFrame == game.Workspace.CamPart1.CFrame then
+		if plr.leaderstats.Money.Value >= 100 then
+			game:GetService("ReplicatedStorage").ShopEvents.Gun:FireServer(plr)
+		end
+	end
+end)
+
+script.Parent.ShopGui.Buy.Activated:Connect(function()
+	if camera.CFrame == game.Workspace.CamPart2.CFrame then
+		if plr.leaderstats.Money.Value >= 150 then
+			game:GetService("ReplicatedStorage").ShopEvents.FlashLight:FireServer(plr)
+		end
+	end
+end)
