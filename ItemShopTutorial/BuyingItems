@@ -1,0 +1,19 @@
+game:GetService("ReplicatedStorage").ShopEvents.Sword.OnServerEvent:Connect(function(plr)
+	local sword = game.Workspace.ClassicSword:Clone()
+	sword.Handle.Anchored = false
+	sword.Parent = plr.Character
+	plr.leaderstats.Money.Value -= 50
+end)
+
+game:GetService("ReplicatedStorage").ShopEvents.Gun.OnServerEvent:Connect(function(plr)
+	local sword = game.Workspace.HyperlaserGun:Clone()
+	sword.Handle.Anchored = false
+	sword.Parent = plr.Character
+	plr.leaderstats.Money.Value -= 100
+end)
+game:GetService("ReplicatedStorage").ShopEvents.FlashLight.OnServerEvent:Connect(function(plr)
+	local sword = game.Workspace["Flash Light"]:Clone()
+	sword.Handle.Anchored = false
+	sword.Parent = plr.Character
+	plr.leaderstats.Money.Value -= 150
+end)
