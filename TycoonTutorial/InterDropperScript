@@ -1,0 +1,17 @@
+local debounce = true
+
+task.spawn(function()
+	while true do
+		if debounce then
+			local clone = game:GetService("ReplicatedStorage").DP.DropperPart:Clone()
+			clone.Parent = game.Workspace.ClonedPart
+			clone.Position = script.Parent.CloneHere.Position
+			clone.Anchored = false
+			debounce = false
+		else
+			wait(0.8)
+			debounce = true
+		end
+	end
+end)
+
