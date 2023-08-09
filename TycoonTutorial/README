@@ -1,0 +1,52 @@
+▒▒▒▒▒▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+▒▒██████▒▒▒█▒▒▒████▒▒▒▒████▒▒▒██▒▒▒██▒▒▒█████▒▒▒████▒▒▒█████▒▒▒█████▒▒███████▒▒
+▒▒█▒▒▒░▒▒▒▒█░░██▒▒██▒▒██▒▒██▒▒█▒█▒█▒█▒▒▒█▒▒▒▒▒▒▒█▒▒█▒▒▒█▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒
+▒▒█▒▒███▒▒▒█▒▒█░▒▒▒█▒▒█▒▒▒▒█▒▒█▒▒█▒▒█▒▒▒█▒▒▒▒▒▒▒█▒▒▒▒▒▒█████▒▒▒█████▒▒▒▒▒█▒▒▒▒▒
+▒▒█▒▒▒░█░░░█▒▒██▒▒██▒▒██▒▒██▒▒█▒▒▒▒▒█▒▒▒█▒▒▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒
+▒▒██████▒▒▒█░░░████▒▒▒▒████▒▒▒█▒▒▒▒▒█▒▒▒█████▒▒▒█▒▒▒▒▒▒█▒▒▒█▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒
+
+*READ ME*
+*FOR FILE CODE PLACEMENT*
+
+FIRST MAKE SURE TO ENABLE API SERVICES!!!!
+
+DATA STORE CODE NEEDS TO BE IN SERVERSCRIPT SERVICE AND THE SCRIPT SHOULD BE CALLED "DataStore".
+
+"Tycoon1PartColorChange" CAN BE PUT INTO "StarterPlayerScripts" AS A LOCAL SCRIPT.
+
+"Wall1PartColorChange" CAN ALSO BE PUT INTO "StarterPlayerScripts" AS A LOCAL SCRIPT.
+
+"InterDropperScript" CAN BE PUT INTO THE DROPPER YOU HAVE TO BUY AND IS AUTOMATIC, THE SCRIPT SHOULD BE A SERVER SCRIPT
+UNLESS YOU KNOW HOW TO CODE AND WANT TO MAKE THE DROPPER PARTS LOCALLY VISIBLE BUT STILL GIVE MONEY ON THE SERVER SIDE.
+
+"SellingMain" SHOULD BE PUT INTO THE "Sell" PART AND NOT THE "SellZone" PART AS A SERVER SCRIPT.
+
+"BuyWallScript" SHOULD BE A SERVERSCRIPT AND IT SHOULD BE PUT INTO YOUR "BuyWall" PART.
+
+"BuyDropperScript" SHOULD BE A SERVERSCRIPT AS WELL AND SHOULD BE PUT INTO THE PART "BuyDropper1".
+
+"BecomeOwner" SHOULD BE PUT INTO THE "BecomeOwner" PART AS A SERVER SCRIPT.
+
+"ClickClone" SCRIPT SHOULD BE A SERVER SCRIPT INSIDE OF THE CLICKDETECTOR FOR YOUR FIRST DROPPER.
+
+
+██╗███╗   ███╗██████╗  ██████╗ ██████╗ ████████╗ █████╗ ███╗   ██╗████████╗    ███████╗██╗  ██╗████████╗██████╗  █████╗ ███████╗
+██║████╗ ████║██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔══██╗████╗  ██║╚══██╔══╝    ██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝
+██║██╔████╔██║██████╔╝██║   ██║██████╔╝   ██║   ███████║██╔██╗ ██║   ██║       █████╗   ╚███╔╝    ██║   ██████╔╝███████║███████╗
+██║██║╚██╔╝██║██╔═══╝ ██║   ██║██╔══██╗   ██║   ██╔══██║██║╚██╗██║   ██║       ██╔══╝   ██╔██╗    ██║   ██╔══██╗██╔══██║╚════██║
+██║██║ ╚═╝ ██║██║     ╚██████╔╝██║  ██║   ██║   ██║  ██║██║ ╚████║   ██║       ███████╗██╔╝ ██╗   ██║   ██║  ██║██║  ██║███████║
+╚═╝╚═╝     ╚═╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+                                                                                                                                
+--------------------------------------------------------------------------------------------------------------------------------
+
+A FOLDER CALLED "ClonedPart" AND "Owners" SHOULD BE CREATED IN THE WORKSPACE.
+
+A FOLDER CALLED "DP" SHOULD BE CREATED IN REPLICATED STORAGE AND THE "DropperPart" SHOULD BE PLACED INSIDE.
+
+ANOTHER FOLDER IN REPLICATED STORAGE SHOULD BE MADE AND IT SHOULD BE CALLED "Droppers" AND YOUR "InterDropper"/YOUR FIRST BUYABLE DROPPER SHOULD BE PLACED INSIDE.
+
+INSIDE REPLICATED STORAGE IS WHERE YOUR "Wall1" AND "Wall1Animated" SHOULD BE PLACED.
+
+INSIDE OF WORKSPACE IS WHERE YOU SHOULD HAVE YOUR "BeginnerDropper", "BecomeOwner" Part, "BuyDropper1" Part, "BuyWall" Part, "ConveyorPart", "SellZone" Part, And Your "Sell" Part.
+
+YOUR "ConveyorPart" THAT IS IN THE WORKSPACE SHOULD HAVE THE PROPERTY "AssemblyLinearVelocity" AND THE X VALUE SHOULD BE SET TO -10 OR 10 DEPENDING ON HOW YOU PLACED YOUR PART.
