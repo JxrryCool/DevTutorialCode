@@ -1,0 +1,16 @@
+local debounce = true
+
+script.Parent.MouseClick:Connect(function(player)
+	if player.Name == game.Workspace.Owners:WaitForChild("Tycoon1").Value then
+		if debounce then
+			local clone = game:GetService("ReplicatedStorage").DP.DropperPart:Clone()
+			clone.Parent = game.Workspace.ClonedPart
+			clone.Position = script.Parent.Parent.Parent.CloneHere.Position
+			clone.Anchored = false
+			debounce = false
+		else
+			wait(0.35)
+			debounce = true
+		end
+	end
+end)
