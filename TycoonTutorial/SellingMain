@@ -1,0 +1,8 @@
+local player = game.Players.PlayerAdded:Wait()
+
+script.Parent.Touched:Connect(function(hit)
+	if hit.Name == "DropperPart" then
+		player.leaderstats.Money.Value += 1
+		hit:Destroy()
+	end
+end)
