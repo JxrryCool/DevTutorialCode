@@ -1,0 +1,23 @@
+local debounce = true
+
+
+script.Parent.Touched:Connect(function(hit)
+	if hit.Parent:FindFirstChild("Humanoid") then
+		if debounce == true then
+			game.Workspace.Owners.Tycoon1.Value = hit.Parent.Name
+			script.Parent.Text.TextLabel.Text = hit.Parent.Name
+			debounce = false
+		end
+	end
+end)
+
+
+task.spawn(function()
+	while true do
+		wait(0.2)
+		if game.Workspace:WaitForChild("Owners").Tycoon1.Value ~= nil then
+			script.Parent.Text.TextLabel.Text = game.Workspace:WaitForChild("Owners").Tycoon1.Value
+			debounce = false
+		end
+	end
+end)
