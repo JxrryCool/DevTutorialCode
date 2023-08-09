@@ -1,0 +1,9 @@
+local debounce = true
+local player = game.Players.LocalPlayer
+
+while debounce == true do
+	wait(0.2)
+	if player.leaderstats.Money.Value >= 150 then
+		game.Workspace:WaitForChild("BuyDropper1").BrickColor = BrickColor.new("Lime green")
+	end
+end
