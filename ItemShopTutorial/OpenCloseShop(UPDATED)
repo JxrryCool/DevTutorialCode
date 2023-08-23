@@ -1,3 +1,5 @@
+local plr = game.Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
 local left = false
 local left2 = false
 local right = true
