@@ -1,0 +1,36 @@
+local Player = game.Players.LocalPlayer
+local RS = game:GetService("ReplicatedStorage")
+local MPS = game:GetService("MarketplaceService")
+local GampassFolder = RS.GampassItems
+local Image = script.Parent.Parent
+local Button = script.Parent
+local Item = GampassFolder:FindFirstChild(Image:GetAttribute("Item"))
+local GamepassID = Item:GetAttribute("GamePassID")
+
+print(GamepassID)
+
+
+if Player then 
+	Image.Image = Item.TextureId
+end
+
+
+local function promptPurchese()
+	
+	local HasPass = false
+	
+	local success, message = pcall(function()
+		HasPass = MPS:UserOwnsGamePassAsync(Player.UserId, GamepassID)
+	end)
+	
+	if HasPass == true then 
+		print("Player has already purchesed the gamepass item")
+	else 
+		MPS:PromptGamePassPurchase(Player, GamepassID)
+	end
+end
+
+
+Button.Activated:Connect(function()
+	promptPurchese()
+end)
