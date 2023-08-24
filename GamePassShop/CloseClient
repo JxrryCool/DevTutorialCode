@@ -1,0 +1,10 @@
+local Player = game.Players.LocalPlayer
+local Button = script.Parent
+local GameFrame = Button.Parent
+
+
+Button.Activated:Connect(function()
+	if GameFrame.Visible == true then 
+		GameFrame.Visible = false
+	end
+end)
