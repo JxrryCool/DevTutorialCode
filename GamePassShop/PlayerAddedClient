@@ -1,0 +1,10 @@
+local Player = game.Players.LocalPlayer
+local RS = game:GetService("ReplicatedStorage")
+local GamePassE = RS:WaitForChild("GamePassEvents")
+local PlayerAddedE = GamePassE:WaitForChild("PlayerAddedEvent")
+
+
+task.wait(1.6)
+if Player then 
+	PlayerAddedE:FireServer()
+end
