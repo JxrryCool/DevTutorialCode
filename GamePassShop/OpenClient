@@ -1,0 +1,12 @@
+local Player = game.Players.LocalPlayer
+local GameFrame = script.Parent.GamepassF
+local RS = game:GetService("ReplicatedStorage")
+local GamePassEventsF = RS:WaitForChild("GamePassEvents")
+local OpenShopEvent = GamePassEventsF:WaitForChild("OpenShop")
+
+
+OpenShopEvent.OnClientEvent:Connect(function()
+	if GameFrame.Visible == false then
+		GameFrame.Visible = true
+	end
+end)
