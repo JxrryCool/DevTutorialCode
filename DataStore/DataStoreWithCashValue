@@ -1,0 +1,65 @@
+local DataStoreService = game:GetService("DataStoreService")
+local PlayerData = DataStoreService:GetDataStore("PlayerData")
+
+game.Players.PlayerAdded:Connect(function(player)
+	if PlayerData:GetAsync(player.UserId.."-HasSeen") then
+		wait()
+	else
+		print("You Have Not Joined Before")
+	end
+end)
+
+game.Players.PlayerAdded:Connect(function(player)
+	local leaderstats = Instance.new("Folder", player)
+	leaderstats.Parent = player
+	leaderstats.Name = "leaderstats"
+	
+	local Money = Instance.new("IntValue", player)
+	Money.Parent = leaderstats
+	Money.Name = "Cash"
+	
+	local data
+	
+	local success, err = pcall(function()
+		data = PlayerData:GetAsync("playerdata"..player.UserId)
+	end)
+	if data and success then
+		print(player.Name.." Has Joined Before")
+	else
+		print(player.Name.." Has Joined For The First Time")
+	end
+	
+	if success then
+		print("Success")
+		if data then
+			print("Data Is Being Collected")
+			--data is a table
+			
+			Money.Value = data[1]
+			
+		else
+			
+		end
+	else
+		warn(err)
+	end
+end)
+
+game.Players.PlayerRemoving:Connect(function(player)
+	local leaderstats = player.leaderstats
+	local Money = leaderstats.Cash
+	
+	
+	local data = {Money.Value,}
+	
+	local success, err = pcall(function()
+		PlayerData:SetAsync("playerdata"..player.UserId, data)
+	end)
+	
+	if success then
+		print("data saved")
+	else
+		player:Kick("There Was An Error Loading Your Data")
+		warn(err)
+	end
+end)
