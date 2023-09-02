@@ -1,0 +1,10 @@
+script.Parent.Touched:Connect(function(hit)
+	if hit.Parent then
+		if hit.Parent:FindFirstChild("Humanoid") then
+			local char = hit.Parent:FindFirstChild("Humanoid").Parent
+			local player = game.Players:GetPlayerFromCharacter(char)
+			
+			player.leaderstats.Cash.Value += 10
+		end
+	end
+end)
