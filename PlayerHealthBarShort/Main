@@ -1,0 +1,11 @@
+local plr = game:GetService("Players").LocalPlayer
+local char = plr.Character
+local Humanoid = char:WaitForChild("Humanoid")
+
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	local Health = math.floor(Humanoid.Health)
+	local MaxHealth = math.floor(Humanoid.MaxHealth)
+	game:GetService("TweenService"):Create(script.Parent, TweenInfo.new(0.3, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Size = UDim2.new(Health/MaxHealth,0,1,0)}):Play()
+	script.Parent.Parent.Health.Text = tostring(Health).."/"..tostring(MaxHealth)
+end)
