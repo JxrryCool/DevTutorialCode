@@ -1,0 +1,46 @@
+local Door = script.Parent
+local Prompt = Door:WaitForChild("ProximityPrompt")
+local IsOpen = false
+
+local TweenService = game:GetService("TweenService")
+
+local Info = TweenInfo.new(
+	0.5,         --Length (seconds)
+	Enum.EasingStyle.Sine,  --Easing Style 
+	Enum.EasingDirection.Out,  -- Easing Direction
+	0,        -- Times Repeated
+	false,    -- Reverse
+	0      -- Delay (seconds)
+)
+
+local Pos1 = 81.28
+local Pos2X = Door.Position.X + 3.325
+local Pos3Z = Door.Position.Z - 3.051
+
+local Goals = 
+	{
+		Position = Vector3.new(Pos2X, 5.348, Pos3Z);
+		Orientation = Vector3.new(0, 81.28, 0)
+	}
+
+local Goals2 = 
+	{
+		Position = Vector3.new(13.683, 5.348, -121.556);
+		Orientation = Vector3.new(0, 0, 0)
+	}
+
+
+local OpenDoor = TweenService:Create(Door, Info, Goals)
+local CloseDoor = TweenService:Create(Door, Info, Goals2)
+
+Prompt.Triggered:Connect(function()
+	if IsOpen == false then 
+		OpenDoor:Play()
+		Prompt.ActionText = "Close"
+		IsOpen = true
+	else
+		CloseDoor:Play()
+		Prompt.ActionText = "Open"
+		IsOpen = false
+	end
+end)
