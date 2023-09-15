@@ -1,8 +1,8 @@
-local player = game.Players.PlayerAdded:Wait()
-local debounce = player:WaitForChild("bool").Dropper1
-
 script.Parent.Touched:Connect(function(hit)
 	if hit.Parent.Name == game.Workspace.Owners.Tycoon1.Value then
+		local char = hit.Parent
+		local player = game.Players:GetPlayerFromCharacter(char)
+		local debounce = player:WaitForChild("bool").Dropper1
 		if debounce.Value == true then
 			if player.leaderstats.Money.Value >= 150 then
 				player.leaderstats.Money.Value -= 150
@@ -11,17 +11,6 @@ script.Parent.Touched:Connect(function(hit)
 				clone.Parent = game.Workspace
 				script.Parent:Destroy()
 			end
-		end
-	end
-end)
-
-task.spawn(function()
-	while true do
-		wait(0.1)
-		if debounce.Value == false then
-			local clone = game:GetService("ReplicatedStorage").Droppers.InterDropper:Clone()
-			clone.Parent = game.Workspace
-			script.Parent:Destroy()
 		end
 	end
 end)
