@@ -1,0 +1,124 @@
+local DataStoreService = game:GetService("DataStoreService")
+local PlayerData = DataStoreService:GetDataStore("PlayerData")
+
+game.Players.PlayerAdded:Connect(function(player)
+	if PlayerData:GetAsync(player.UserId.."-HasSeen") then
+		wait()
+	else
+		print("You have Not Joined Before")
+	end
+end)
+
+game.Players.PlayerAdded:Connect(function(player)
+	local leaderstats = Instance.new("Folder")
+	leaderstats.Name = "leaderstats"
+	leaderstats.Parent = player
+	
+	local money = Instance.new("IntValue")
+	money.Name = "Money"
+	money.Parent = leaderstats
+	
+	local tycoon1 = Instance.new("StringValue")
+	tycoon1.Name = "Tycoon1"
+	tycoon1.Parent = game.Workspace:WaitForChild("Owners")
+	-----------------------------BOOLVALS
+	local bool = Instance.new("Folder")
+	bool.Name = "bool"
+	bool.Parent = player
+	
+	local wall1 = Instance.new("BoolValue")
+	wall1.Name = "Wall1"
+	wall1.Parent = bool
+	
+	local path1 = Instance.new("BoolValue")
+	path1.Name = "path1"
+	path1.Parent = bool
+	
+	local dropper1 = Instance.new("BoolValue")
+	dropper1.Name = "Dropper1"
+	dropper1.Parent = bool
+
+
+	local data 
+
+	local success, err = pcall(function()
+		data = PlayerData:GetAsync("playerdata"..player.UserId)
+	end)
+	if data and success then
+		print("You Have Joined Before")
+	else
+		print("First Time Joining")
+		wall1.Value = true
+		dropper1.Value = true
+		path1.Value = true
+	end
+
+	if success then 
+		print("success")
+		if data then 
+			print("data Collected")
+			-- data is a table 
+			money.Value = data[1]
+			tycoon1.Value = data[2]
+			wall1.Value = data[3]
+			dropper1.Value = data[4]
+			path1.Value = data[5]
+		else 
+
+		end
+	else 
+		warn(err)
+	end
+	if player.bool.Dropper1.Value == false then
+		if tycoon1.Value ~= nil then
+			if player.Name == tycoon1.Value then
+				local clone = game:GetService("ReplicatedStorage").Droppers.InterDropper:Clone()
+				clone.Parent = game.Workspace
+				game.Workspace:WaitForChild("BuyDropper1"):Destroy()
+			end
+		end
+	end
+	if player.bool.Wall1.Value == false then
+		if tycoon1.Value ~= nil then
+			if player.Name == tycoon1.Value then
+				local wallclone = game:GetService("ReplicatedStorage").Wall1:Clone()
+				wallclone.Parent = game.Workspace
+				game.Workspace:WaitForChild("BuyWall"):Destroy()
+			end
+		end
+	end
+	if player.bool.path1.Value == false then
+		if tycoon1.Value ~= nil then
+			if player.Name == tycoon1.Value then
+				local clone = game:GetService("ReplicatedStorage").Paths.Path1:Clone()
+				clone.Parent = game.Workspace
+				game.Workspace:WaitForChild("BuyPath"):Destroy()
+			end
+		end
+	end
+
+end)
+-------------------------------------------------------------
+
+
+game.Players.PlayerRemoving:Connect(function(player)
+	local leaderstats = player.leaderstats
+	local money = leaderstats.Money
+	local tycoon1 = game.Workspace:WaitForChild("Owners").Tycoon1
+	local Wall1 = player.bool.Wall1
+	local Dropper1 = player.bool.Dropper1
+	local Path1 = player.bool.path1
+
+	local data = {money.Value, tycoon1.Value, Wall1.Value, Dropper1.Value, Path1.Value}
+
+	local success, err = pcall(function()
+		PlayerData:SetAsync("playerdata"..player.UserId, data)
+	end)
+
+	if success then 
+		print("data saved")
+	else 
+		player:Kick("Error While Loading Your Data")
+		warn(err)
+	end
+end)
