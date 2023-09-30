@@ -1,0 +1,18 @@
+--PUT THIS SCRIPT INTO THE VEHICLESEAT
+
+local LW = script.Parent.Parent.LeftWheel
+local LW2 = script.Parent.Parent.LeftWheel2
+local RW = script.Parent.Parent.RightWheel
+local RW2 = script.Parent.Parent.RightWheel2
+
+local Steer = script.Parent.Parent.Steer
+
+local speed = 80
+
+script.Parent.Changed:Connect(function(property)
+	LW.AngularVelocity = speed * script.Parent.Throttle
+	LW2.AngularVelocity = speed * script.Parent.Throttle
+	RW.AngularVelocity = speed * -script.Parent.Throttle
+	RW2.AngularVelocity = speed * -script.Parent.Throttle
+	Steer.TargetAngle = 15 * script.Parent.Steer
+end)
